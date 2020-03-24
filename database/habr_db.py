@@ -1,17 +1,17 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, session
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm.session import Session
 from database.models import Base
 
 
 class HabrDb:
-    __session: session
+    __session: Session
 
-    def __init__(self, url, base=Base):
+    def __init__(self, url: str, base=Base):
         engine = create_engine(url)
         base.metadata.create_all(engine)
-        session_db = sessionmaker(bind=engine)
-        self.__session = session_db()
+        self.__session = sessionmaker(bind=engine)
 
     @property
-    def session(self):
+    def session(self) -> Session:
         return self.__session
