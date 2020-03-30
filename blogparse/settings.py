@@ -16,13 +16,15 @@ NEWSPIDER_MODULE = 'blogparse.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36'
+# USER_AGENT = 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-us; SCH-I535 Build/KOT49H)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; Linux) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
 LOG_ENABLED = True
 LOG_LEVEL = 'DEBUG'
+IMAGES_STORE = 'images'
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -30,7 +32,7 @@ LOG_LEVEL = 'DEBUG'
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 1
+DOWNLOAD_DELAY = 2
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
 #CONCURRENT_REQUESTS_PER_IP = 16
@@ -69,6 +71,7 @@ TELNETCONSOLE_ENABLED = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'blogparse.pipelines.BlogparsePipeline': 300,
+   'blogparse.pipelines.ImgPipeline': 100
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
