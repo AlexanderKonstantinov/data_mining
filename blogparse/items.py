@@ -32,4 +32,5 @@ class AvitoRealEstateItem(scrapy.Item):
     parsed_date = scrapy.Field(output_processor=TakeFirst())
     author_name = scrapy.Field(output_processor=strip_first_str_el)
     author_url = scrapy.Field(output_processor=hook_user_url)
+    params = scrapy.Field(output_processor=TakeFirst())
     phone = scrapy.Field(output_processor=TakeFirst())
