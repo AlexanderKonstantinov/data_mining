@@ -34,3 +34,12 @@ class AvitoRealEstateItem(scrapy.Item):
     author_url = scrapy.Field(output_processor=hook_user_url)
     params = scrapy.Field(output_processor=TakeFirst())
     phone = scrapy.Field(output_processor=TakeFirst())
+
+
+class ZillowItem(scrapy.Item):
+    _id = scrapy.Field()
+    address = scrapy.Field(output_processor=TakeFirst())
+    price = scrapy.Field(output_processor=TakeFirst())
+    area = scrapy.Field(output_processor=TakeFirst())
+    url = scrapy.Field(output_processor=TakeFirst())
+    photos = scrapy.Field()
