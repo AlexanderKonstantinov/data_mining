@@ -1,0 +1,4 @@
+pymongo
+Pillow
+pytesseract
+PyPDF2
